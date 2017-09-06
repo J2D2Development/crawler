@@ -1,0 +1,16 @@
+next - on own time
+Organize files
+1) do we want to use vue routing?  move the actual action to the 'action' tab and give it a shot.
+    -might move to vue cli and have it be a spa?
+2) store last run somewhere?  set up simple mongodb?  or maybe practice with postgres
+3) Integrate my regular js (for menu clicking, effects, etc) into Vue
+
+line 111 (inside length function)
+//!!! added logging here
+            console.log('lru length func called:', typeof n, key);
+            for(let prop in n) {
+              console.log('prop of n is:', prop);
+            }
+            console.log('code', n['statusCode']);
+            console.log('headers:', n['headers']);
+            console.log('body len?', n['body'].length);

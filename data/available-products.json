@@ -1,0 +1,851 @@
+[
+    {
+        "name": "Accounts Payable",
+        "module": "Accounting",
+        "route": "/accounting/accounts-payable",
+        "tags": ["accounts", "payable", "invoices", "processing", "checks", "direct", "deposits", "deposit", "printing"],
+        "desc": "Provides all of the functions needed by an Accounts Payable department. Has features ranging from entering multiple types of invoices, verifying invoices entered, and processing payments for the invoices entered, including printing checks or making direct deposits.",
+        "related": [
+            {"name": "General Ledger", "route": "/accounting/general-ledger"},
+            {"name": "Purchasing Software", "route": "/accounting/purchasing-software"}
+        ]
+    },
+    {
+        "name": "Fake Route!",
+        "module": "Accounting",
+        "route": "/fake/notreal",
+        "tags": ["accounts", "payable", "invoices", "processing", "checks", "direct", "deposits", "deposit", "printing"],
+        "desc": "Provides all of the functions needed by an Accounts Payable department. Has features ranging from entering multiple types of invoices, verifying invoices entered, and processing payments for the invoices entered, including printing checks or making direct deposits.",
+        "related": [
+            {"name": "General Ledger", "route": "/accounting/general-ledger"},
+            {"name": "Purchasing Software", "route": "/accounting/purchasing-software"}
+        ]
+    },
+    {
+        "name": "Accounts Receivable",
+        "module": "Accounting",
+        "route": "/accounting/accounts-receivable-software",
+        "tags": ["accounts", "receivable", "ledger", "invoices", "tracking", "recurring", "bills", "deposits", "credits"],
+        "desc": "Provides the features required by an Accounts Receivable department and interfaces with the MIMICS General Ledger or exports to other general ledger systems. Has features ranging from generating invoices, tracking received payments and outstanding invoices, handling recurring bills, and tracking customer deposits and credits.",
+        "related": [
+            {"name": "General Ledger", "route": "/accounting/general-ledger"}
+        ]
+    },
+    {
+        "name": "Account Reconciliation",
+        "module": "Accounting",
+        "route": "/accounting/account-reconciliation",
+        "tags": ["account", "reconciliation", "tracking", "checking", "banks", "statements", "accounting"],
+        "desc": "Allows the tracking and reconciliation of any number of checking accounts at any number of different banks. Imports statements submitted from the banks in an importable format (ie. Excel, CSV, Text) and imports the activity that must be reconciled.",
+        "related": []
+    },
+    {
+        "name": "Fixed Assets",
+        "module": "Accounting",
+        "route": "/accounting/fixed-assets-management",
+        "tags": ["tracking", "assets", "locations", "cost centers", "branches", "buildings", "departments", "transfer processing", "work orders", "historical location tracking", "asset category modeling", "claim processing", "missing assets", "depreciation methods", "straight line", "declining balance", "acrs", "macrs", "purchases", "disposals", "disposition", "multiple books", "corporate", "grouping", "federal", "state", "governmental", "foreign", "web", "interface"],
+        "desc": "Provides a completely automated solution for managing corporate assets. The assets can be categorized by asset type, and a user defined modeling feature allows for quick asset entry while minimizing entry errors.",
+        "related": [
+            {"name": "General Ledger", "route": "/accounting/general-ledger"},
+            {"name": "Accounting System", "route": "/accounting"}
+        ]
+    },
+    {
+        "name": "General Ledger",
+        "module": "Accounting",
+        "route": "/accounting/general-ledger",
+        "tags": [],
+        "desc": "Interfaces directly with any other MIMICS module, or can stand-alone. It is a fully functioning general ledger with budgeting, analysis, and other features. A journal entry feature allows the user to post entries that are always balanced.",
+        "related": [
+            {"name": "Accounting System", "route": "/accounting"},
+            {"name": "Portfolio Management", "route": "/investment/portfolio-management"},
+            {"name": "Pension Management", "route": "/trust/pension-management"},
+            {"name": "Pension Management", "route": "/trust/pension-management"}
+        ]
+    },
+    {
+        "name": "Payment Processing",
+        "module": "Accounting",
+        "route": "/accounting/payment-processing",
+        "tags": [],
+        "desc": "Provides a quick and easy way for branches to process various types of payments, including payments by Check (including Cashier’s Checks and Money Orders), Direct Deposit, Credit Advice, ACH, SWIFT and RTGS. This module also can facilitate Remittance Payments and Receipts.",
+        "related": [
+            {"name": "General Ledger", "route": "/accounting/general-ledger"},
+            {"name": "Accounting System", "route": "/accounting"}
+        ]
+    },
+    {
+        "name": "Purchasing",
+        "module": "Accounting",
+        "route": "/accounting/purchasing-software",
+        "tags": [],
+        "desc": "Provides all of the functions of the Purchasing department that interfaces to the MIMICS General Ledger or exports to other General Ledger systems. The system will initialize and update inventory as needed. The system will track inventory information such as the number of units available, the amount of inventory that is in stock, the amount pending for an order, and the price per unit.",
+        "related": [
+            {"name": "General Ledger", "route": "/accounting/general-ledger"},
+            {"name": "Accounting System", "route": "/accounting"}
+        ]
+    },
+    {
+        "name": "Cash Orders",
+        "module": "Banking",
+        "route": "/bank_operations/cash-order-application",
+        "tags": [],
+        "desc": "Provides a web portal front-end for customers to enter their cash order request. The in-house component of the application then receives the requests, and if approved handles the processing of the order, with safeguards and audit logging at each step.",
+        "related": [
+            {"name": "Currency Management", "route": "/central-banking/central-bank-currency-management"},
+            {"name": "Customer Relationship Management", "route": "/module-options/crm"}
+        ]
+    },
+    {
+        "name": "Documentary Collections",
+        "module": "Banking",
+        "route": "/banking/documentary-collections",
+        "productRoute": "/documentary-collections",
+        "tags": [],
+        "desc": "The MIMICS Documentary Collections system is used primarily for export/import transactions, and automates functions such as receiving and processing incoming and outgoing items. It creates and tracks all necessary documents, and handles any number of fees for foreign collections with multiple intermediary banks. It disburses collected amounts to payee by check or directly to the customer's account. It also interfaces to the MIMICS General Ledger system or any third-party general ledger system.",
+        "features": ["Handles the processing of documents, including such steps as: Presentation of the item, Receiving payment from the paying agent, Paying the presenter", "Processes documentary collections items as well as any other kind of user-defined items", "Tracks items paid, those due and those paid, and those due but still receivable; allows items to be paid before payment is received", "Stores all parties to the transaction on file for future use", "Creates and prints cover letters and collection letters, tracers, receipts and any other type of custom form required; all forms can be micr encoded", "Provides a full audit trail for all system activity", "Fees are calculated and applied automatically, and entries can be transmitted to your GL and/or DDA system", "Produces a full complement of reports, including: new items, outstanding items, interest accrual, etc."
+        ],
+        "related": [
+            {"name": "General Ledger", "route": "/accounting/general-ledger"}
+        ]
+    },
+    {
+        "name": "Federal Funds",
+        "module": "Banking",
+        "route": "/bank_operations/fed-funds",
+        "tags": [],
+        "desc": "Handles both principal and agent trades. Agent trades can be pooled and any number of pools can be managed. Rates may be fixed or variable. Agent confirmations provide full disclosure of the distribution of funds, weighted average rates, and upstream rates.",
+        "related": []
+    },
+    {
+        "name": "Forex Cashier",
+        "module": "Banking",
+        "route": "/bank_operations/forex-cashier",
+        "tags": [],
+        "desc": "Processes the purchase and sale of foreign currency and checks. Payments can be made by cash or check and receipts are printed for the customers. The system tracks all bills and coins of each currency.",
+        "related": [
+            {"name": "Forex Software", "route": "/investment/forex-software"},
+            {"name": "Forex Exchange Management", "route": "/central-banking/central-bank-forex"}
+        ]
+    },
+    {
+        "name": "Loan Teller",
+        "module": "Banking",
+        "route": "/loans/loan-cashier",
+        "tags": [],
+        "desc": "A subset of the MIMICS Teller Software System and interfaces with the MIMICS Loan Management Software System to assist the cashier in receiving payments, printing receipts for payment, looking up accounts and loan status, and balancing at the end of the day.",
+        "related": [
+            {"name": "Teller Software", "route": "/central-banking/teller-software"},
+            {"name": "Loan Management", "route": "/banking/loan-management"}
+        ]
+    },
+    {
+        "name": "Loan Management",
+        "module": "Banking",
+        "route": "/banking/loan-management",
+        "tags": [],
+        "desc": "Allows you to enter and track loans, from entering and funding the loan to closing the loan or turning the loan over for collection. Our software prints invoices, statements, and a variety of reports.",
+        "related": [
+            {"name": "Loan Origination", "route": "/banking/loan-origination"},
+            {"name": "Debt Collections", "route": "/banking/loan-management/debt-collections"},
+            {"name": "General Ledger", "route": "/accounting/general-ledger"},
+            {"name": "REO Software", "route": "/banking/real-estate-software-system/reo-management"},
+            {"name": "Loan Teller", "route": "/banking/loan-teller"}
+        ]
+    },
+    {
+        "name": "Debt Collections",
+        "module": "Banking",
+        "route": "/banking/loan-management/debt-collections",
+        "tags": [],
+        "desc": "Delinquent loans being tracked via the Loan Management module can be passed to collections directly via this product.",
+        "related": [
+            {"name": "Loan Management", "route": "/banking/loan-management"}
+        ]
+    },
+    {
+        "name": "Loan Origination",
+        "module": "Banking",
+        "route": "/banking/loan-origination",
+        "tags": [],
+        "desc": "Provides you with the tools to effectively execute the loan application process from start to finish. Loan application information is easily entered into the software system and can be completed in one sitting or can be stopped and restarted until the application is completed.",
+        "related": [
+            {"name": "Loan Management", "route": "/banking/loan-management"}
+        ]
+    },
+    {
+        "name": "Loan Origination",
+        "module": "Banking",
+        "route": "/banking/item-collections",
+        "tags": [],
+        "desc": "Automates the receiving, collecting and processing functions of your Collections Department. Our software is designed to send and receive collection items, issue receipts and maintain a pending file of open items.",
+        "related": []
+    },
+    {
+        "name": "Safekeeping",
+        "module": "Banking",
+        "route": "/banking/safekeeping-software",
+        "tags": [],
+        "desc": "Assists with your department’s daily processing of interest tickets, mortgage backed security tickets for principal pay downs and interests, dividend payments, partial calls, puts and other securities. Automates pay down calculations and interest payment calculations.",
+        "related": []
+    },
+    {
+        "name": "Real Estate",
+        "module": "Banking",
+        "route": "/banking/real-estate-software-system",
+        "tags": [],
+        "desc": "Tracks real estate owned by the financial institution from foreclosure or purchase through the eventual sale of the property. During the time that the property is held, the system handles the property management, appraisals, litigation and all other required procedures.",
+        "related": [
+            {"name": "REO Budgeting", "route": "/banking/real-estate-software-system/reo-management"}
+        ]
+    },
+    {
+        "name": "REO Management",
+        "module": "Banking",
+        "route": "/banking/real-estate-software-system/reo-management",
+        "tags": [],
+        "desc": "Fully processes REO properties from inception through final disposition. The basic information defining the property is entered along with the foreclosure data. Any legal information regarding associated litigation can be entered.",
+        "related": [
+            {"name": "Loan Management", "route": "/banking/loan-management"}
+        ]
+    },
+    {
+        "name": "REO Management",
+        "module": "Banking",
+        "route": "/banking/real-estate-software-system/reo-management",
+        "tags": [],
+        "desc": "Fully processes REO properties from inception through final disposition. The basic information defining the property is entered along with the foreclosure data. Any legal information regarding associated litigation can be entered.",
+        "related": [
+            {"name": "Loan Management", "route": "/banking/loan-management"}
+        ]
+    },
+    {
+        "name": "Repo & Reverse Repo Agreement",
+        "module": "Banking",
+        "route": "/banking/repo-software",
+        "tags": [],
+        "desc": "A comprehensive management software system for repos and reverse repos. Overnight and term repos can be entered manually or by way of electronic sweeps. The collateral can be reverse repos, trading inventory or portfolio securities. Variable principals and rates are allowed.",
+        "related": [
+            {"name": "Public Fund Deposit Collateralization", "route": "/banking/repo-software/public-fund-deposit-collateralization"}
+        ]
+    },
+    {
+        "name": "Public Fund Deposit Collateralization",
+        "module": "Banking",
+        "route": "/investment-management/public-fund-deposit-collateralization",
+        "tags": [],
+        "desc": "Allows you to either manually enter or sweep in the balances of your public funds customer deposits. The system can collateralize the deposits automatically based on collateralization preferences, or you can collateralize the deposits manually.",
+        "related": [
+            {"name": "Repo & Reverse Repo Agreement", "route": "/banking/repo-software"}
+        ]
+    },
+    {
+        "name": "Auction Processing",
+        "module": "Central Banking",
+        "route": "/central-banking/central-bank-auction-processing",
+        "tags": [],
+        "desc": "Handles the full auction process for Central Banks for Interest-Bearing Securities (such as Bonds, Debentures, etc.), Discount Securities (such as T-Bills), and Precious Metals (such as Gold). Includes a web portal for auction participants to place bids and view results.",
+        "related": [
+            {"name": "Customer Relationship Management", "route": "/module-options/crm"}
+        ]
+    },
+    {
+        "name": "Bond Issuance",
+        "module": "Central Banking",
+        "route": "/central-banking/central-bank-bonds",
+        "tags": [],
+        "desc": "Facilitates the auction process for both your Government Bonds (or Registered Stock) and the externally issued bond you may track, including Corporate and Municipal Bonds. Certificates and holdings are tracked. Transfers can be made and transfer history is saved.",
+        "related": [
+            {"name": "Bond Paying Agent", "route": "/trust/bond-paying-agent"},
+            {"name": "Debt Management", "route": "/trust/debt-management"},
+            {"name": "Treasury Bills", "route": "/central-banking/central-bank-treasury-bills"}
+        ]
+    },
+    {
+        "name": "Currency Management",
+        "module": "Central Banking",
+        "route": "/central-banking/central-bank-currency-management",
+        "tags": [],
+        "desc": "Provides all the functionality needed by a central bank to manage the flow of currency into and out of circulation. It tracks the full vault management of out-of-circulation currency, both notes and coins, tracks the full counting and sorting of the currency, and provides full verification and full audit trails of all activity entered in the system.",
+        "related": [
+            {"name": "Portfolio Management", "route": "/central-banking/central-bank-portfolio"},
+            {"name": "Teller", "route": "/central-banking/teller-software"},
+            {"name": "Web Interfaces", "route": "/central-banking/central-bank-web-interfaces"},
+            {"name": "Mobile Device Access", "route": "/module-options/customer-web-portal"},
+            {"name": "Numismatic Management", "route": "/central-banking/central-bank-numismatic-management"}
+        ]
+    },
+    {
+        "name": "Dormant Accounts",
+        "module": "Central Banking",
+        "route": "/central-banking/central-bank-dormant-accounts",
+        "tags": [],
+        "desc": "Effectively manages your dormant accounts and other abandoned property. Our standard software can be customized to your institution's exact needs. We work closely with you to build a software solution that accommodates your institution's unique operations and reporting requirements. ",
+        "related": [
+            {"name": "Auction Processing", "route": "/central-banking/central-bank-auction-processing"},
+            {"name": "Bond Issuance", "route": "/central-banking/central-bank-bonds"},
+            {"name": "Currency Management", "route": "/central-banking/central-bank-currency-management"},
+            {"name": "Numismatic Management", "route": "/central-banking/central-bank-numismatic-management"},
+            {"name": "Portfolio Management", "route": "/central-banking/central-bank-portfolio"},
+            {"name": "Teller", "route": "/central-banking/teller-software"},
+            {"name": "Web Interfaces", "route": "/central-banking/central-bank-web-interfaces"}
+        ]
+    },
+    {
+        "name": "Exchange Control",
+        "module": "Central Banking",
+        "route": "/central-banking/central-bank-dormant-accounts",
+        "tags": [],
+        "desc": "Tracks activity that affects the domestic currency supply and transactions with international financial implications.",
+        "related": [
+            {"name": "Auction Processing", "route": "/central-banking/central-bank-auction-processing"},
+            {"name": "Bond Issuance", "route": "/central-banking/central-bank-bonds"},
+            {"name": "Currency Management", "route": "/central-banking/central-bank-currency-management"},
+            {"name": "Numismatic Management", "route": "/central-banking/central-bank-numismatic-management"},
+            {"name": "Portfolio Management", "route": "/central-banking/central-bank-portfolio"},
+            {"name": "Teller", "route": "/central-banking/teller-software"},
+            {"name": "Treasury Bills", "route": "/central-banking/central-bank-treasury-bills"},
+            {"name": "Web Interfaces", "route": "/central-banking/central-bank-web-interfaces"}
+        ]
+    },
+    {
+        "name": "Foreign Exchange Management",
+        "module": "Central Banking",
+        "route": "/central-banking/central-bank-forex",
+        "tags": [],
+        "desc": "Effectively manages the trading and accounting procedures required for institutional currency trading. It provides an efficient and effective way to print contracts and affect operating accounts.",
+        "related": [
+            {"name": "Forex Cashier", "route": "/bank_operations/forex-cashier"},
+            {"name": "External Reserves Portfolio", "route": "/central-banking/central-bank-portfolio"}
+        ]
+    },
+    {
+        "name": "Numismatic Management",
+        "module": "Central Banking",
+        "route": "/central-banking/central-bank-numismatic-management",
+        "tags": [],
+        "desc": "Tracks the vault contents of Numismatic (Collectors') Currency Items, including the categories of General Stock, Consignment Stock (available for sale), Redeemed Stock, Gratis Stock (items to be given as gifts), and Archive Stock (the Bank's Collection). It allows for the entry of requests for numismatic items for sale or as gifts, and tracks the process of their removal from the vault and delivery to the proper department, with full audit capabilities.",
+        "related": [
+            {"name": "Currency Management", "route": "/central-banking/central-bank-currency-management"},
+            {"name": "Portfolio Management", "route": "/central-banking/central-bank-portfolio"},
+            {"name": "Teller", "route": "/central-banking/teller-software"}
+        ]
+    },
+    {
+        "name": "Portfolio Management - CB",
+        "module": "Central Banking",
+        "route": "/central-banking/central-bank-portfolio",
+        "tags": [],
+        "desc": "Portfolio Management Software has been designed to create a simple and user friendly method to manage an institutional portfolio- tailored specifically for the needs of Central Banks, including the calculation of External Reserves. Our software offers many configurable options, easily adapting for different international and accounting standards. An extensive list of standard interfaces integrates directly with our software.",
+        "related": [
+            {"name": "Back Office", "route": "/investment/back-office"},
+            {"name": "Front Office", "route": "/investment/front-office"},
+            {"name": "Currency Management", "route": "/central-banking/central-bank-currency-management"},
+            {"name": "Foreign Exchange Management", "route": "/central-banking/central-bank-forex"},
+            {"name": "Repo & Reverse Repo Agreement", "route": "/banking/repo-software"},
+            {"name": "Portfolio Analysis", "route": "/investment/portfolio-analysis"}
+        ]
+    },
+    {
+        "name": "Treasury Bills",
+        "module": "Central Banking",
+        "route": "/central-banking/central-bank-treasury-bills",
+        "tags": [],
+        "desc": "Handles the management of the Treasury Bills and Notes from the Auction to their Maturity. Our standard software can be customized to your institution's exact needs.",
+        "related": [
+            {"name": "Bond Issuance", "route": "/central-banking/central-bank-bonds"}
+        ]
+    },
+    {
+        "name": "Teller",
+        "module": "Central Banking",
+        "route": "/central-banking/teller-software",
+        "tags": [],
+        "desc": "Can organize, monitor and streamline your entire teller operation. This front-end module can facilitate any type of receipt or deposit, and process disbursements or other types of payments, to the full range of teller functions including cashing checks, currency exchange, CD management, loan payments, as well as remittances.",
+        "related": [
+            {"name": "Customer Relationship Management", "route": "/module-options/crm"},
+            {"name": "Customer Portfolio", "route": "/investment/portfolio-management/customer-portfolio"},
+            {"name": "CD Issuance", "route": "/trust/cd-issuance"},
+            {"name": "Loan Processing", "route": "/banking/loan-management"},
+            {"name": "Annuities", "route": "/trust/annuities-software"}
+        ]
+    },
+    {
+        "name": "Web Interfaces for Central Banks",
+        "module": "Central Banking",
+        "route": "/central-banking/central-bank-web-interfaces",
+        "tags": [],
+        "desc": "A web-based solution for your central bank. MIMICS customizes the look and content of the websites for each of our clients, but for many of the clients, we build upon a previously-programmed foundation.",
+        "related": [
+            {"name": "Currency Management", "route": "/central-banking/central-bank-currency-management"},
+            {"name": "Dormant Accounts", "route": "/central-banking/central-bank-dormant-accounts"},
+            {"name": "Exchange Control", "route": "/central-banking/central-bank-exchange-control"},
+            {"name": "Web Interfaces", "route": "/central-banking/central-bank-web-interfaces"}
+        ]
+    },
+    {
+        "name": "Back Office",
+        "module": "Investment",
+        "route": "/investment/back-office",
+        "tags": [],
+        "desc": "Will process security purchases and sales, make the payments for the transactions, and assist in the delivery of the securities. Our software handles a wide variety of investment instruments efficiently.",
+        "related": []
+    },
+    {
+        "name": "Bond Tax Swap",
+        "module": "Investment",
+        "route": "/investment/bond-tax-swap",
+        "tags": [],
+        "desc": "Provides a flexible method to design swaps. The bonds you are considering replacing – the Held bonds – can be either taxable issues or non-taxable. You can consider one or more bonds in your Held bond portfolio if you interface with the MIMICS Portfolio Management Software. Otherwise, you can enter the parameters of the bonds to be swapped out as they occur.",
+        "related": [
+            {"name": "Portfolio Management", "route": "/investment/portfolio-management"}
+        ]
+    },
+    {
+        "name": "Equity Trading",
+        "module": "Investment",
+        "route": "/investment/equity-trading",
+        "tags": [],
+        "desc": "Facilitates the taking and entering of equity orders from clients, processing the completion of the orders, processing additional equity corporate actions, such as dividends and splits, and processing additional exchange and legal actions, such as certificate lodgement, pledging, indemnity fees, and transfer taxes.",
+        "related": [
+            {"name": "Web Interfaces", "route": "/module-options/customer-web-portal"}
+        ]
+    },
+    {
+        "name": "FOREX",
+        "module": "Investment",
+        "route": "/investment/forex-software",
+        "tags": [],
+        "desc": "Manages the trading and accounting procedures required for institutional currency trading. MIMICS offers a complete software solution for Foreign Exchange Trading and Management. Provides an efficient way to print contracts and affect operating accounts. Also provided are both front and back office features including the accounting function.",
+        "related": [
+            {"name": "Portfolio Management", "route": "/investment/portfolio-management"}
+        ]
+    },
+    {
+        "name": "Front Office",
+        "module": "Investment",
+        "route": "/investment/front-office",
+        "tags": [],
+        "desc": "Shows your available inventory to help you give quick quotes to your customers. The system handles fixed income securities, equities, fixed income derivatives, and equity derivatives. Once there is a sale, your trades are automatically transmitted to the back office for further processing.",
+        "related": [
+            {"name": "Back Office", "route": "/investment/back-office"}
+        ]
+    },
+    {
+        "name": "Hedge Fund",
+        "module": "Investment",
+        "route": "/investment/hedge-fund",
+        "tags": [],
+        "desc": "Evolved to match today's market requirements. The system manages security portfolios for any type of security, and it maintains margin accounts. An embedded General Ledger System provides all financial reporting for the fund. Accounting is entirely flexible, and the system can handle any kind of accounting transaction.",
+        "related": [
+            {"name": "General Ledger", "route": "/accounting/general-ledger"},
+            {"name": "Portfolio Management", "route": "/investment/portfolio-management"}
+        ]
+    },
+    {
+        "name": "Investment Calculator",
+        "module": "Investment",
+        "route": "/investment/investment-calculator",
+        "tags": [],
+        "desc": "Performs daily calculations instantly, and displays all pertinent data at a single glance. This system will eliminate the need for another calculator or terminal on the desk. The calculations can be saved for later use.",
+        "related": [
+            {"name": "Back Office", "route": "/investment/back-office"},
+            {"name": "Front Office", "route": "/investment/front-office"},
+            {"name": "Portfolio Management", "route": "/investment/portfolio-management"},
+            {"name": "Security Trading", "route": "/investment-management/security-trading"}
+        ]
+    },
+    {
+        "name": "Order Management",
+        "module": "Investment",
+        "route": "/investment/order-management",
+        "tags": [],
+        "desc": "Designed to facilitate taking and entering buy and sell orders from clients of any instrument type, processing the completion of the orders, and processing additional exchange and legal actions, such as certificate lodgment, pledging, indemnity fees, and transfer taxes. Fee and commissions are tracked for all activity. Full reporting is available.",
+        "related": [
+            {"name": "Equity Trading", "route": "/investment/equity-trading"},
+            {"name": "Portfolio Management", "route": "/investment/portfolio-management"},
+            {"name": "Web Interfaces", "route": "/module-options/customer-web-portal"}
+        ]
+    },
+    {
+        "name": "Portfolio Analysis",
+        "module": "Investment",
+        "route": "/investment/portfolio-analysis",
+        "tags": [],
+        "desc": "Designed to assist a portfolio manager with viewing and tracking different risk and performance measurements on the portfolio being tracked by the MIMICS Treasury Portfolio application, MIMICS Fund Portfolio application, and/or the MIMICS Customer Portfolio application. Different categories of risk management features are offered, including credit risk, market risk, and different sensitivity analysis measurements.",
+        "related": [
+            {"name": "Portfolio Management", "route": "/investment/portfolio-management"},
+            {"name": "Repo Agreements", "route": "/banking/repo-software"}
+        ]
+    },
+    {
+        "name": "Portfolio Management",
+        "module": "Investment",
+        "route": "/investment/portfolio-management",
+        "tags": [],
+        "desc": "Offers powerful and flexible out-of-the-box solutions for managing your business’ portfolio needs. Get up and running quickly with our software’s many configurable options that easily adapt for different international and accounting standards. An extensive list of standard interfaces integrates directly with our software. We have software modules that manage proprietary trading; customer’s trading; mutual, pension, and hedge funds; and foreign-exchange reserves.",
+        "related": [
+            {"name": "Treasury Portfolio", "route": "/investment/portfolio-management/treasury-portfolio"},
+            {"name": "Customer Portfolio", "route": "/investment/portfolio-management/customer-portfolio"},
+            {"name": "Fund Portfolio", "route": "/investment/portfolio-management/fund-portfolio"},
+            {"name": "Central Bank Portfolio", "route": "/central-banking/central-bank-portfolio"}
+        ]
+    },
+    {
+        "name": "Fund Portfolio",
+        "module": "Investment",
+        "route": "/investment/portfolio-management/fund-portfolio",
+        "parent": "Portfolio Management",
+        "productRoute": "/portfolio-management",
+        "subModule": "Fund Portfolio",
+        "subModuleRoute": "/fund-portfolio",
+        "tags": [],
+        "keywords": "fund portfolio investment",
+        "desc": "The MIMICS Fund Portfolio Management module manages the portfolios of all foreign and domestic investments types, with fixed or variable rates. It organizes and simplifies the processing requirements for funds, and calculates the Net Asset Value (NAV). Investments can be segregated, and it maintains the funds’ holdings, income, and transaction history.",
+        "features": ["Manages equity, fixed income, equity derivatives, fixed income derivatives, commodities, real estate, repos and other investment types", "Calculates the Net Asset Value (NAV)", "Calculates management and incentive fees per your configured settings", "Prepares all compliance reporting automatically", "Handles an unlimited number of portfolios of any size", "Interfaces with the MIMICS General Ledger module or third-party general ledgers, as well systems such as ACH, SWIFT, RTGS, etc.", "Interfaces with the MIMICS Portfolio Analysis module for full performance and risk analytics", "Interfaces with the MIMICS Mutual Funds Admin and MIMICS Pension Management modules"
+        ],
+        "related": [
+            {"name": "General Ledger", "route": "/accounting/general-ledger"},
+            {"name": "Portfolio Management", "route": "/investment/portfolio-management"},
+            {"name": "Pension Management", "route": "/trust/pension-management"},
+            {"name": "Portfolio Analysis", "route": "/investment/portfolio-analysis"}
+        ]
+    },
+    {
+        "name": "Treasury Portfolio",
+        "module": "Investment",
+        "route": "/investment/portfolio-management/treasury-portfolio",
+        "tags": [],
+        "desc": "Manage your proprietary trading efficiently while scaling to your particular business needs. Our software offers many configurable options, easily adapting for different international and accounting standards. An extensive list of standard interfaces integrates directly with our software.",
+        "related": [
+            {"name": "MIMICS Interfaces", "route": "/module-options/mimics-interfaces"},
+            {"name": "Portfolio Management", "route": "/investment/portfolio-management"}
+        ]
+    },
+    {
+        "name": "Customer Portfolio",
+        "module": "Investment",
+        "route": "/investment/portfolio-management/customer-portfolio",
+        "tags": [],
+        "desc": "Manage your customers' trading efficiently while scaling to your particular business needs. The module is designed to allow you to track the portfolios of an unlimited number of customers. You can have any number of portfolios per customer, and each portfolio can contain an unlimited number of securities and currencies.",
+        "related": []
+    },
+    {
+        "name": "Precious Metals Management",
+        "module": "Investment",
+        "route": "/investment/precious-metals-software",
+        "tags": [],
+        "desc": "Handles the full workflow of managing information for investors in precious metals from start to finish, beginning with the receipt of funds from the investor to the purchase and storage of metals, to the eventual sale and disbursement of funds.",
+        "related": [
+            {"name": "Web Interfaces", "route": "/module-options/customer-web-portal"}
+        ]
+    },
+    {
+        "name": "Sales Commissions",
+        "module": "Investment",
+        "route": "/investment-management/sales-commissions",
+        "tags": [],
+        "desc": "Can be used in a standalone mode - without interfacing with any other MIMICS system - or it can be embedded in virtually any MIMICS products you wish. The system will automatically calculate sales commissions for any trade in the system depending upon the parameters that you, the user, define.",
+        "related": [
+            {"name": "General Ledger", "route": "/accounting/general-ledger"}
+        ]
+    },
+    {
+        "name": "Security Trading",
+        "module": "Investment",
+        "route": "/investment-management/security-trading",
+        "tags": [],
+        "desc": "Combines the functionality of the front and back offices. Trades start at the front office where the sales reps have visual access to their trade date and settlement date inventories based on the real time updates by the traders' purchases. Sales reps are instantly notified of positions that meet the interest criteria of their clients or prospects.",
+        "related": [
+            {"name": "Back Office", "route": "/investment/back-office"},
+            {"name": "Customer Relationship Management", "route": "/module-options/crm"},
+            {"name": "Front Office", "route": "/investment/front-office"},
+            {"name": "Investment Calculator", "route": "/investment/investment-calculator"},
+            {"name": "Customer Relationship Management", "route": "/module-options/crm"},
+            {"name": "Money Desk", "route": "/trust/money-desk-software-system"}
+        ]
+    },
+    {
+        "name": "Annuities",
+        "module": "Trust",
+        "route": "/trust/annuities-software",
+        "tags": [],
+        "desc": "Manages your customers' annuities investment from the point of purchase until the final payout is made. This system offers comprehensive annuity administration solutions by handling fixed, variable, and fund-indexed annuities, and tracking lump-sum payments and ongoing contributions for immediate or deferred annuities.",
+        "related": [
+            {"name": "Back Office", "route": "/investment/back-office"},
+            {"name": "Customer Relationship Management", "route": "/module-options/crm"},
+            {"name": "Front Office", "route": "/investment/front-office"},
+            {"name": "Investment Calculator", "route": "/investment/investment-calculator"},
+            {"name": "Customer Relationship Management", "route": "/module-options/crm"},
+            {"name": "Money Desk", "route": "/trust/money-desk-software-system"}
+        ]
+    },
+    {
+        "name": "Bond Paying Agent & Transfer Agent",
+        "module": "Trust",
+        "route": "/trust/bond-paying-agent",
+        "tags": [],
+        "desc": "Processing functions for bonds are complex and time consuming. Everyday processing for a registrar, paying agent or transfer agent is difficult without a comprehensive software system. MIMICS Bond Paying & Transfer Agent software organizes and simplifies all aspects of the registrar, paying agent, and transfer agent.",
+        "related": [
+            {"name": "Shareholder Accounting", "route": "/trust/shareholder-accounting"}
+        ]
+    },
+    {
+        "name": "CD Custody",
+        "module": "Trust",
+        "route": "/trust/cd-custody",
+        "tags": [],
+        "desc": "Manages the custodial CD holdings of your customers from the point the order is posted on the website. Interest Bearing and Discount CDs are handled. Our software tracks multiple levels of status of the CDs, from Pending to Approved, based on different compliance issues needed to complete the transaction.",
+        "related": [
+            {"name": "Web Interfaces", "route": "/module-options/customer-web-portal"}
+        ]
+    },
+    {
+        "name": "CD Issuance",
+        "module": "Trust",
+        "route": "/trust/cd-issuance",
+        "tags": [],
+        "desc": "Provides the functions of paying agent, registrar, and transfer agent for certificates of deposit. Interest can be simple or compounded and can pay and compound according to a variety of schedules. On the customer side, holdings are tracked, principal and interest are distributed, and 1099s are prepared. On the issuer side, the obligation to the holders is accounted for by the system.",
+        "related": [
+            {"name": "Debt Management", "route": "/trust/debt-management"}
+        ]
+    },
+    {
+        "name": "Commercial Paper Issuance",
+        "module": "Trust",
+        "route": "/trust/commercial-paper-issuance",
+        "tags": [],
+        "desc": "Designed to eliminate many of the cumbersome and often repetitive bookkeeping chores associated with the issuance of primary market Commercial Paper. Offers the issuing agent the flexibility needed to handle transactions on behalf of different issuers who may all use different certificate formats.",
+        "related": [
+            {"name": "Customer Relationship Management", "route": "/module-options/crm"}
+        ]
+    },
+    {
+        "name": "Debt Management",
+        "module": "Trust",
+        "route": "/trust/debt-management",
+        "tags": [],
+        "desc": "Designed for companies that issue their own debt; such as commercial paper, promissory notes, GICs, and certificates of indebtedness. The system performs all of the functions of registrar, paying agent, and transfer agent.",
+        "related": []
+    },
+    {
+        "name": "IRA Management",
+        "module": "Trust",
+        "route": "/trust/ira-management",
+        "tags": [],
+        "desc": "Allows financial organizations, corporations, and fund managers to track employee Individual Retirement Accounts, payroll contributions, withdrawals, lump sum payments, and fund investments. Contributions may be imported directly from a payroll system to minimize manual entries by the users.",
+        "related": [
+            {"name": "Pension Management", "route": "/trust/pension-management"},
+            {"name": "Customer Portfolio", "route": "/investment/portfolio-management/customer-portfolio"}
+        ]
+    },
+    {
+        "name": "LSA (Long-Term Savings Accounts)",
+        "module": "Trust",
+        "route": "/trust/long-term-savings-account-software",
+        "tags": [],
+        "desc": "Comprehensive management system for handling long term saving accounts, a special deposit instrument created by Parliament on June 1, 1999.  The Government of Jamaica had introduced this Jamaican Dollar denominated tax-free account specifically for individuals.",
+        "related": [
+            {"name": "Pension Management", "route": "/trust/pension-management"}
+        ]
+    },
+    {
+        "name": "Money Desk",
+        "module": "Trust",
+        "route": "/trust/money-desk-software-system",
+        "tags": [],
+        "desc": "Allows money desk operations to be integrated into a single module, providing reporting across all products and a simple GL or DDA interface to your core system. You can process investments from overnight through longer terms.",
+        "related": []
+    },
+    {
+        "name": "Mutual Fund",
+        "module": "Trust",
+        "route": "/trust/mutual-fund",
+        "tags": [],
+        "desc": "Handles all of the basic requirements for trading and tracking mutual fund holdings. The Mutual Funds module handles the customer-side: registrar, transfer agent, and paying agent functionality.",
+        "related": [
+            {"name": "Fund Portfolio Management", "route": "/investment/portfolio-management/fund-portfolio"}
+        ]
+    },
+    {
+        "name": "Open Time Deposit",
+        "module": "Trust",
+        "route": "/trust/open-time-deposit",
+        "tags": [],
+        "desc": "Enables your organization to easily manage your customers’ open time deposit accounts. Handles fixed rate, variable rate, and rates pegged to another rate such as LIBOR. Both simple interest and compound interest are handled.",
+        "related": []
+    },
+    {
+        "name": "Pension Management",
+        "module": "Trust",
+        "route": "/trust/pension-management",
+        "tags": [],
+        "desc": "A flexible system for managing multiple pension plans, both Defined Benefit and Defined Contribution plans, that can be localized by the user for any country. From the inception of the plan through the final pension payments, the software will effectively track the contributions made, documents filed, any payments made, and any number of adjustments to the plans as they occur.",
+        "related": [
+            {"name": "Fund Portfolio Management", "route": "/investment/portfolio-management/fund-portfolio"}
+        ]
+    },
+    {
+        "name": "REIT",
+        "module": "Trust",
+        "route": "/trust/reit-software",
+        "tags": [],
+        "desc": "Allows your firm to streamline and automate the processing for registrar, paying agent and transfer agent for Real Estate Investment Trusts. The MIMICS REIT Software allows tracking of any number of REITs and issues.",
+        "related": []
+    },
+    {
+        "name": "Shareholder Accounting",
+        "module": "Trust",
+        "route": "/trust/shareholder-accounting",
+        "tags": [],
+        "desc": "A comprehensive software system is essential for organizing the complex processing requirements for stock transactions. MIMICS Shareholder Accounting software simplifies all aspects of stock transactions for private and public companies, as well as registered paying and transfer agents.",
+        "related": [
+            {"name": "Bond Paying Agent & Transfer Agent", "route": "/trust/bond-paying-agent"}
+        ]
+    },
+    {
+        "name": "eProxy Web Interface",
+        "module": "Trust",
+        "route": "/trust/eproxy-system",
+        "tags": [],
+        "desc": "Provides online proxy materials and voting capabilities for your shareholders. The site can be hosted by MIMICS or any other web host. The site allows anyone to download the materials that are uploaded by the company.",
+        "related": [
+            {"name": "Shareholder Accounting", "route": "/trust/shareholder-accounting"}
+        ]
+    },
+    {
+        "name": "Consulting",
+        "module": "Module Options",
+        "route": "/module-options/consulting-services",
+        "tags": [],
+        "desc": "Implementation & Customization: In order to minimize the overall implementation cost, MIMICS completes much of the data migration and verification, and setting up custom reports prior to the on-site visit.  This allows our consulting team to focus on in-depth end user training, parallel testing, and additional custom changes to the system while on-site.  Reporting & Data Mining: Both in-house and external auditing can be an arduous and lengthy process for many departments.  Before, during, and after major audits, MIMICS clients request new reports for internal and external submission. Depending on the scope of the project and the urgency, MIMICS Consulting Services can assist with this project.",
+        "related": [
+            {"name": "Disaster Recovery", "route": "/module-options/disaster-recovery"},
+            {"name": "Interfaces", "route": "/module-options/mimics-interfaces"},
+            {"name": "Mobile Device Access", "route": "/module-options/customer-web-portal"},
+            {"name": "Outsourcing", "route": "/services-and-software-features/outsourcing-services"},
+            {"name": "Web Interfaces", "route": "/module-options/customer-web-portal"}
+        ]
+    },
+    {
+        "name": "Customer Relationship Management (CRM)",
+        "module": "Module Options",
+        "route": "/module-options/crm",
+        "tags": [],
+        "desc": "Allows financial organizations, corporations, investment managers, and credit collections departments to record and manage contact information, sales and service communications, collections information, customer history, new product offerings, and other sales and marketing campaigns.",
+        "related": [
+            {"name": "FATCA", "route": "/module-options/crm/fatca-software-option"},
+            {"name": "Web Interfaces", "route": "/module-options/customer-web-portal"}
+        ]
+    },
+    {
+        "name": "FATCA CRM Option",
+        "module": "Module Options",
+        "route": "/module-options/crm/fatca-software-option",
+        "tags": [],
+        "desc": "An add-on to the MIMICS CRM Software System that allows for the capture and processing of FATCA required data according to the U.S. Foreign Account Tax Compliance Act. It allows for the seamless integration of other software systems, such as Customer Portfolio Management in order to manage the real-time current balances for customers.",
+        "related": [
+            {"name": "Bond Paying Agent & Transfer Agent", "route": "/trust/bond-paying-agent"},
+            {"name": "Customer Portfolio", "route": "/investment/portfolio-management/customer-portfolio"},
+            {"name": "Customer Relationship Management", "route": "/module-options/crm"},
+            {"name": "Safekeeping", "route": "/banking/safekeeping-software"},
+            {"name": "Shareholder Accounting", "route": "/trust/shareholder-accounting"}
+        ]
+    },
+    {
+        "name": "Disaster Recovery",
+        "module": "Module Options",
+        "route": "/module-options/disaster-recovery",
+        "tags": [],
+        "desc": "MIMICS Inc. currently offers two types of Disaster Recovery Service: Backup Server Option at the client's site (great control and flexibility) and the Off-Site Storage Option hosted by MIMICS (for clients with limited hard drive space or clients with small networks or one server).",
+        "related": [
+            {"name": "Consulting", "route": "/module-options/consulting-services"},
+            {"name": "Interfaces", "route": "/module-options/mimics-interfaces"},
+            {"name": "Mobile Device Access", "route": "/module-options/customer-web-portal"},
+            {"name": "Outsourcing", "route": "/services-and-software-features/outsourcing-services"},
+            {"name": "Web Interfaces", "route": "/module-options/customer-web-portal"}
+        ]
+    },
+    {
+        "name": "Email Option",
+        "module": "Module Options",
+        "route": "/module-options/email-automation",
+        "tags": [],
+        "desc": "Allows customer forms such as confirmations and statements to be encrypted and emailed automatically. The Email Option can be set up for any MIMICS Software that you have licensed. The choice of what forms are enabled for the Email Option is up to you. The layout of those forms is based upon your specifications.",
+        "related": [
+            {"name": "Consulting", "route": "/module-options/consulting-services"},
+            {"name": "Disaster Recovery", "route": "/module-options/disaster-recovery"},
+            {"name": "Interfaces", "route": "/module-options/mimics-interfaces"},
+            {"name": "Mobile Device Access", "route": "/module-options/customer-web-portal"},
+            {"name": "Outsourcing", "route": "/services-and-software-features/outsourcing-services"},
+            {"name": "Web Interfaces", "route": "/module-options/customer-web-portal"}
+        ]
+    },
+    {
+        "name": "Interfaces",
+        "module": "Module Options",
+        "route": "/module-options/mimics-interfaces",
+        "tags": [],
+        "desc": "MIMICS has interfaced with over 150 different third-party systems over the years, such as Electronic Data Interchange (EDI), Daily/Periodic Interfaces and Data Conversions.",
+        "related": [
+            {"name": "Consulting", "route": "/module-options/consulting-services"},
+            {"name": "Disaster Recovery", "route": "/module-options/disaster-recovery"},
+            {"name": "Mobile Device Access", "route": "/module-options/customer-web-portal"},
+            {"name": "Outsourcing", "route": "/services-and-software-features/outsourcing-services"},
+            {"name": "Web Interfaces", "route": "/module-options/customer-web-portal"}
+        ]
+    },
+    {
+        "name": "Web Interfaces",
+        "module": "Module Options",
+        "route": "/module-options/customer-web-portal",
+        "tags": [],
+        "desc": "MIMICS offers a wide array of web programming services, including: Standard Web Products, Web Interfaces, and Outsourcing, among others. Options include fully web-based products or those that are often installed in conjunction with a Win32 client/server MIMICS module or other third-party modules.  and do not have an internal Win32 component.  We can also handle the programming of websites from scratch to client specifications, and utilizing the technologies requested by the client.",
+        "related": [
+            {"name": "Website Security", "route": "/module-options/customer-web-portal"}
+        ]
+    },
+    {
+        "name": "Website Security",
+        "module": "Module Options",
+        "route": "/module-options/customer-web-portal",
+        "tags": [],
+        "desc": "MIMICS uses various techniques to secure the websites it creates. MIMICS always recommends the acquisition of an SSL Certificate for the domain of the website. An SSL (Secure Socket Layer) Certificate will allow the User's browser to validate the identity of the web site and then create an encrypted connection with the server. All information sent from the User's browser to the web server will then be encrypted and secure.",
+        "related": [
+            {"name": "Web Interfaces", "route": "/module-options/customer-web-portal"}
+        ]
+    },
+    {
+        "name": "Outsourcing",
+        "module": "Module Options",
+        "route": "/services-and-software-features/outsourcing-services",
+        "tags": [],
+        "desc": "In-house programming of new applications can be costly and time consuming, while off the shelf products do not provide the flexibility you need. If you have a special project that requires programming or you have a need for application development for your own proprietary use, MIMICS can supplement your programming department or act as a proxy if you do not have staff programmers.",
+        "related": [
+            {"name": "Consulting", "route": "/module-options/consulting-services"},
+            {"name": "Disaster Recovery", "route": "/module-options/disaster-recovery"},
+            {"name": "Interfaces", "route": "/module-options/mimics-interfaces"},
+            {"name": "Mobile Device Access", "route": "/module-options/customer-web-portal"},
+            {"name": "Web Interfaces", "route": "/module-options/customer-web-portal"}
+        ]
+    },
+    {
+        "name": "Process Flow",
+        "module": "Module Options",
+        "route": "/module-options/process-flow-module",
+        "tags": [],
+        "desc": "Generalized so that any process can be tracked. It defines what steps are taken during any process. MIMICS Process Flow System allows the user to define the flow of a process with both automated and manual components.  The user defines the events and decision points that occur during the flow and follow the transactions through the process.",
+        "related": []
+    },
+    {
+        "name": "Reconciliation",
+        "module": "Module Options",
+        "route": "/module-options/reconciliation",
+        "tags": [],
+        "desc": "Used to reconcile cash balances, cash transactions, share balances, share transactions and any other fields between any two electronic files or sources, including from any other MIMICS software system.",
+        "related": [
+            {"name": "Process Flow", "route": "/module-options/process-flow-module"},
+            {"name": "Customer Portfolio", "route": "/investment/portfolio-management/customer-portfolio"}
+        ]
+    }
+]
