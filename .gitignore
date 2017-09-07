@@ -4,3 +4,4 @@ screenshots
 node_modules
 
 crawl-log/*.txt
+*.log

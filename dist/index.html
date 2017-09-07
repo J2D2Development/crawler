@@ -18,6 +18,7 @@
                             crawlStatus: 'Ready',
                             crawlResults: [],
                             crawlComplete: '',
+                            crawlFilter: '',
                             loaded: false
                         },
                         methods: {
@@ -31,7 +32,10 @@
         
                     function startCrawl() {
                         app.crawlResults = [];
-                        socket.emit('crawl-start', { start: true });
+                        socket.emit('crawl-start', { 
+                            start: true, 
+                            filter: app.crawlFilter 
+                        });
                         app.crawlStatus = 'Running...';
                     }
         
@@ -135,6 +139,13 @@
                                 <div v-if="!loaded">Loading...</div>
                                 <div v-else>
                                     <div>{{crawlStatus}}</div>
+                                    <select v-model="crawlFilter">
+                                        <option value="" disabled>Choose Category to crawl</option>
+                                        <option value="test">Test</option>
+                                        <option value="">All</option>
+                                        <option value="Accounting">Accounting</option>
+                                        <option value="Banking">Banking</option>
+                                    </select>
                                     <button v-on:click="startCrawl">Push me to start process</button>
                                     <div>
                                         <transition-group name="fade" tag="ul" class="crawl-results">

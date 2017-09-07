@@ -7,7 +7,15 @@ const util = require('util');
 const puppeteer = require('puppeteer');
 const utilities = require('./utilities/utilities-server');
 
-async function run(crawlEmitter, products) {
+async function run(products, crawlEmitter) {
+    if(!crawlEmitter) {
+        crawlEmitter = {
+            emit: function() {
+                console.log.apply(null, Array.from(arguments));
+            }
+        }
+    }
+
     try {
         const browser = await puppeteer.launch();
         let resultGroup = [];
@@ -34,7 +42,6 @@ async function run(crawlEmitter, products) {
             try {
                 //crawling the DOM can result in dupes- check for that here
                 if(!resultGroup.find(item => item.url === blogLink)) {
-                    console.log('crawling:', blogLink);
                     await crawlPage(blogLink);
                 }
             } catch(err) {
