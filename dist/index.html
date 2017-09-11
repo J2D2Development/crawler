@@ -145,8 +145,12 @@
                                         <option value="">All</option>
                                         <option value="Accounting">Accounting</option>
                                         <option value="Banking">Banking</option>
+                                        <option value="Central Banking">Central Banking</option>
+                                        <option value="Investment">Investment</option>
+                                        <option value="Trust">Trust</option>
+                                        <option value="Module Options">Module Options</option>
                                     </select>
-                                    <button v-on:click="startCrawl">Push me to start process</button>
+                                    <button v-on:click="startCrawl">Start</button>
                                     <div>
                                         <transition-group name="fade" tag="ul" class="crawl-results">
                                             <li v-for="(result, index) in crawlResults" v-bind:key="index">
@@ -157,7 +161,19 @@
                                     <div v-if="crawlComplete">
                                         <h2>Crawl Complete</h2>
                                         {{crawlComplete.successes}} crawled.<br />
-                                        {{crawlComplete.failures}} failed.
+                                        {{crawlComplete.failures}} failed.<br />
+                                        <small>
+                                            Crawl took 
+                                            {{crawlComplete.minutes}}
+                                            {{
+                                                crawlComplete.minutes === '01' ? 'minute' : 'minutes' 
+                                            }} 
+                                            and 
+                                            {{crawlComplete.seconds}}
+                                            {{
+                                                crawlComplete.seconds === '01' ? 'second' : 'seconds'
+                                            }}
+                                        </small>
                                     </div>
                                 </div>
                             </div>

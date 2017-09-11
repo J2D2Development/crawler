@@ -91,7 +91,6 @@ async function run(products, crawlEmitter) {
         
         return resultGroup;
     } catch(err) {
-        console.log('fatal error:', err);
         crawlEmitter.emit('errorFatal', err);
     }
 }

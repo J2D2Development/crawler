@@ -4,13 +4,5 @@ Organize files
     -might move to vue cli and have it be a spa?
 2) store last run somewhere?  set up simple mongodb?  or maybe practice with postgres
 3) Integrate my regular js (for menu clicking, effects, etc) into Vue
-
-line 111 (inside length function)
-//!!! added logging here
-            console.log('lru length func called:', typeof n, key);
-            for(let prop in n) {
-              console.log('prop of n is:', prop);
-            }
-            console.log('code', n['statusCode']);
-            console.log('headers:', n['headers']);
-            console.log('body len?', n['body'].length);
+4) onbeforeunload (or whaterver method is called) if process is running, warn user if they click away that process will cancel! - double check, will it?
+5) notice before crawl of filter applied and total routes that will be crawled.  add in homepage/sitemap/blogs (have option to exclude these)?

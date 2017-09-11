@@ -12,6 +12,7 @@ const PORT = 80;
 const app = express();
 const server = http.createServer(app);
 const io = require('socket.io')(server);
+const utilities = require('./utilities/utilities-server');
 const productData = require('./data/available-products.json');
 
 app.use(express.static(path.join(__dirname, 'static')));
@@ -27,11 +28,18 @@ io.on('connection', socket => {
 
     socket.on('crawl-start', data => {
         let toCrawl = productData;
+        let startTime = new Date();
+
         //user can submit a filter to only crawl certain categories
-        if(data.filter === 'test') {
-            toCrawl = productData.slice(0, 5);
-        } else if(data.filter !== '') {
-            toCrawl = productData.filter(d => d.module === data.filter);
+        if(data.filter) {
+            try {
+                toCrawl = utilities.applyDataFilter(data.filter, toCrawl);
+            } catch(err) {
+                socket.emit('crawl-error', {
+                    success: false,
+                    msg: err.message
+                });
+            }
         }
 
         crawlEmitter.on('crawled', result => socket.emit('crawl-data', result));
@@ -41,7 +49,9 @@ io.on('connection', socket => {
         require('./crawl-runner')(toCrawl, crawlEmitter).then(results => {
             const successes = results.filter(r => r.success).length;
             const failures = results.length - successes;
-            socket.emit('crawl-complete', { results, successes, failures });
+            const endTime = new Date();
+            const { minutes, seconds } = utilities.formatTimeDiff(endTime.getTime() - startTime.getTime());
+            socket.emit('crawl-complete', { results, successes, failures, minutes, seconds });
         })
         .catch(err => socket.emit('crawl-error', { success: false, msg: err }));
     });
