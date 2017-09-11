@@ -11,17 +11,6 @@
         ]
     },
     {
-        "name": "Fake Route!",
-        "module": "Accounting",
-        "route": "/fake/notreal",
-        "tags": ["accounts", "payable", "invoices", "processing", "checks", "direct", "deposits", "deposit", "printing"],
-        "desc": "Provides all of the functions needed by an Accounts Payable department. Has features ranging from entering multiple types of invoices, verifying invoices entered, and processing payments for the invoices entered, including printing checks or making direct deposits.",
-        "related": [
-            {"name": "General Ledger", "route": "/accounting/general-ledger"},
-            {"name": "Purchasing Software", "route": "/accounting/purchasing-software"}
-        ]
-    },
-    {
         "name": "Accounts Receivable",
         "module": "Accounting",
         "route": "/accounting/accounts-receivable-software",
@@ -197,16 +186,6 @@
         "desc": "Tracks real estate owned by the financial institution from foreclosure or purchase through the eventual sale of the property. During the time that the property is held, the system handles the property management, appraisals, litigation and all other required procedures.",
         "related": [
             {"name": "REO Budgeting", "route": "/banking/real-estate-software-system/reo-management"}
-        ]
-    },
-    {
-        "name": "REO Management",
-        "module": "Banking",
-        "route": "/banking/real-estate-software-system/reo-management",
-        "tags": [],
-        "desc": "Fully processes REO properties from inception through final disposition. The basic information defining the property is entered along with the foreclosure data. Any legal information regarding associated litigation can be entered.",
-        "related": [
-            {"name": "Loan Management", "route": "/banking/loan-management"}
         ]
     },
     {

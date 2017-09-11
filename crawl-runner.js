@@ -27,12 +27,15 @@ async function run(products, crawlEmitter) {
         //blogs: have to wait for the page to load, then walk DOM and get all link tags- map to just href value
         const blogPage = await browser.newPage();
         await blogPage.goto(ROOT_URL);
+
         //blog posts are loaded async, so make sure networkidle event fires before proceeding
         await blogPage.waitForNavigation({waitUntil: 'networkidle'});
         const linksToVisit = await blogPage.evaluate(async () => {
             const links = Array.from(document.querySelectorAll('#blog-home-wrapper a'));
             return Promise.resolve(links.map(link => link.href));
         });
+
+        //only crawl links on same domain
         const blogLinks = linksToVisit.filter(link => {
             return path.parse(link).dir.includes(ROOT_DOMAIN);
         });

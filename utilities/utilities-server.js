@@ -21,7 +21,7 @@ function formatTimeForFilepath(timeStamp) {
 }
 
 function formatTimeDiff(millis) {
-    const minutes = Math.floor(millis / (1000*60));
+    const minutes = Math.floor(millis / (1000 * 60));
     const seconds =  Math.floor(millis / 1000) - (minutes * 60);
     return { 
         minutes: minutes >= 1 ? padZeros(minutes) : '00', 
