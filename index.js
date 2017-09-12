@@ -4,6 +4,7 @@ const EventEmitter = require('events');
 class CrawlEmitter extends EventEmitter {}
 const crawlEmitter = new CrawlEmitter();
 
+const cron = require('node-cron');
 const express = require('express');
 const http = require('http');
 const path = require('path');
@@ -14,6 +15,11 @@ const server = http.createServer(app);
 const io = require('socket.io')(server);
 const utilities = require('./utilities/utilities-server');
 const productData = require('./data/available-products.json');
+
+//example only!
+// cron.schedule('* * * * *', function() {
+//     console.log('cron running every minute!', new Date().getMinutes());
+// });
 
 app.use(express.static(path.join(__dirname, 'static')));
 
@@ -39,6 +45,7 @@ io.on('connection', socket => {
                     success: false,
                     msg: err.message
                 });
+                return;
             }
         }
 

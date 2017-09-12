@@ -1,4 +1,10 @@
 [
+    { "name": "Accounting", "route": "/accounting", "module": "Base" },
+    { "name": "Banking", "route": "/banking", "module": "Base" },
+    { "name": "Central Banking", "route": "/central-banking", "module": "Base" },
+    { "name": "Investment", "route": "/investment", "module": "Base" },
+    { "name": "Trust", "route": "/trust", "module": "Base" },
+    { "name": "Module Options", "route": "/module-options", "module": "Base" },
     {
         "name": "Accounts Payable",
         "module": "Accounting",

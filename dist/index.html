@@ -19,7 +19,8 @@
                             crawlResults: [],
                             crawlComplete: '',
                             crawlFilter: '',
-                            loaded: false
+                            loaded: false,
+                            validFilters: ['Test', 'Base', 'Accounting', 'Banking', 'Central Banking', 'Investment', 'Trust', 'Module Options']
                         },
                         methods: {
                             startCrawl
@@ -141,14 +142,10 @@
                                     <div>{{crawlStatus}}</div>
                                     <select v-model="crawlFilter">
                                         <option value="" disabled>Choose Category to crawl</option>
-                                        <option value="test">Test</option>
                                         <option value="">All</option>
-                                        <option value="Accounting">Accounting</option>
-                                        <option value="Banking">Banking</option>
-                                        <option value="Central Banking">Central Banking</option>
-                                        <option value="Investment">Investment</option>
-                                        <option value="Trust">Trust</option>
-                                        <option value="Module Options">Module Options</option>
+                                        <option v-for="filter in validFilters" v-bind:value="filter">
+                                            {{filter}}
+                                        </option>
                                     </select>
                                     <button v-on:click="startCrawl">Start</button>
                                     <div>

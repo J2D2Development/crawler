@@ -1,11 +1,11 @@
 'use strict';
-const VALID_FILTERS = ['test', 'Accounting', 'Banking', 'Central Banking', 'Investment', 'Trust', 'Module Options'];
+const VALID_FILTERS = ['Test', 'Base', 'Accounting', 'Banking', 'Central Banking', 'Investment', 'Trust', 'Module Options'];
 
 function applyDataFilter(filter, data) {
     if(!VALID_FILTERS.includes(filter)) {
         throw new Error(`${filter} is not a valid filter\nValid filters are: ${VALID_FILTERS.join(', ')}`);
     }
-    if(filter === 'test') { return data.slice(0, 5); }
+    if(filter === 'Test') { return data.slice(0, 5); }
     return data.filter(d => d.module === filter);
 }
 

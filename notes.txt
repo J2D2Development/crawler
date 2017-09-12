@@ -18,3 +18,6 @@ store crawl-log in db instead of files
 
 EMAIL NOTIFICATIONS?
 do we want this?  maybe just on fail?
+
+CRON JOB AUTOMATION
+use node-cron?  be sure to sync between prerender cache time (currently 7 days) and this (shared config file?)

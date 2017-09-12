@@ -4,14 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./index.js",
-    "start:cmdline": "node ./index-cmdline.js",
+    "start": "cross-env APP_ENV=mimics node ./index.js",
+    "start:cmdline": "cross-env APP_ENV=mimics node ./index-cmdline.js",
+    "start:test": "cross-env APP_ENV=mimicsTest node ./index.js",
+    "start:cmdlinetest": "cross-env APP_ENV=mimicsTest node ./index-cmdline.js Test",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cross-env": "^5.0.5",
     "express": "^4.15.4",
+    "node-cron": "^1.2.1",
     "puppeteer": "git+https://github.com/GoogleChrome/puppeteer.git",
     "socket.io": "^2.0.3"
   }
