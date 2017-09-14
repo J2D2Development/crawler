@@ -9,7 +9,7 @@ const express = require('express');
 const http = require('http');
 const path = require('path');
 const HOST = 'localhost';
-const PORT = 80;
+const PORT = 8000;
 const app = express();
 const server = http.createServer(app);
 const io = require('socket.io')(server);
@@ -21,13 +21,10 @@ const productData = require('./data/available-products.json');
 //     console.log('cron running every minute!', new Date().getMinutes());
 // });
 
+//do we need this?  if not, do we even need express here?
+//maybe keep it- will need a prod server eventually!
 app.use(express.static(path.join(__dirname, 'static')));
 
-app.get('/', (req, res) => {
-    res.status(200)
-        .type('html')
-        .sendFile(path.join(__dirname, '/dist/index.html'));
-});
 
 io.on('connection', socket => {
     socket.emit('crawl-ready', { msg: 'Crawler Ready' });
@@ -65,5 +62,5 @@ io.on('connection', socket => {
 });
 
 server.listen(PORT, HOST, () => {
-    console.log(`Crawl Monitor running at: ${HOST}:${PORT}`);
+    console.log(`Crawl Monitor Socket Host Running at: ${HOST}:${PORT}`);
 });
