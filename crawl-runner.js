@@ -78,6 +78,10 @@ async function run(products, crawlEmitter) {
         }
 
         async function crawlPage(url) {
+            crawlEmitter.on('server-cancel', () => {
+                cancelAll();
+                //TODO: if we throw the error in here, where would we need to catch it?
+            });
             const page = await browser.newPage();
             const pageResult = await page.goto(url);
             let resultObj = { success: pageResult.ok, url };
@@ -91,10 +95,20 @@ async function run(products, crawlEmitter) {
             resultGroup.push(errorObj);
             crawlEmitter.emit('error', errorObj);
         }
+
+        function cancelAll() {
+            console.log('cancel fired!');
+            throw new Error('manualCancel');
+        }
         
         return resultGroup;
     } catch(err) {
-        crawlEmitter.emit('errorFatal', err);
+        //probably not the right place to catch manual cancel error?
+        if(err === 'manualCancel') {
+            crawlEmitter.emit('manualCancel', resultGroup);
+        } else {
+            crawlEmitter.emit('errorFatal', err);
+        }
     }
 }
 

@@ -5,13 +5,10 @@ class CrawlEmitter extends EventEmitter {}
 const crawlEmitter = new CrawlEmitter();
 
 const cron = require('node-cron');
-const express = require('express');
 const http = require('http');
-const path = require('path');
 const HOST = 'localhost';
-const PORT = 80;
-const app = express();
-const server = http.createServer(app);
+const PORT = 8080;
+const server = http.createServer();
 const io = require('socket.io')(server);
 const utilities = require('./utilities/utilities-server');
 const productData = require('./data/available-products.json');
@@ -20,14 +17,6 @@ const productData = require('./data/available-products.json');
 // cron.schedule('* * * * *', function() {
 //     console.log('cron running every minute!', new Date().getMinutes());
 // });
-
-app.use(express.static(path.join(__dirname, 'static')));
-
-app.get('/', (req, res) => {
-    res.status(200)
-        .type('html')
-        .sendFile(path.join(__dirname, '/dist/index.html'));
-});
 
 io.on('connection', socket => {
     socket.emit('crawl-ready', { msg: 'Crawler Ready' });
@@ -52,6 +41,10 @@ io.on('connection', socket => {
         crawlEmitter.on('crawled', result => socket.emit('crawl-data', result));
         crawlEmitter.on('error', result => socket.emit('crawl-data', result));
         crawlEmitter.on('errorFatal', err => socket.emit('crawl-error', { success: false, msg: err }));
+        crawlEmitter.on('manualCancel', result => {
+            console.log('success ful cancel:', result);
+            socket.emit('cancel-success', result)
+        })
 
         require('./crawl-runner')(toCrawl, crawlEmitter).then(results => {
             const successes = results.filter(r => r.success).length;
@@ -61,6 +54,11 @@ io.on('connection', socket => {
             socket.emit('crawl-complete', { results, successes, failures, minutes, seconds });
         })
         .catch(err => socket.emit('crawl-error', { success: false, msg: err }));
+    });
+
+    socket.on('crawl-cancel', data => {
+        console.log('canceled crawl- how to shut down?');
+        crawlEmitter.emit('server-cancel');
     });
 });
 
