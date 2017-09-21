@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="display:flex;flex-wrap:wrap;">
         <div class="card">
             <h1>System Status</h1>
             <span>Current Info</span>

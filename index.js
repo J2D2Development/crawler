@@ -46,8 +46,14 @@ io.on('connection', socket => {
             }
         }
 
-        crawlEmitter.on('crawled', result => socket.emit('crawl-data', result));
-        crawlEmitter.on('error', result => socket.emit('crawl-data', result));
+        crawlEmitter.on('crawled', result => {
+            console.log('crawled', result); 
+            socket.emit('crawl-data', result);
+        });
+        crawlEmitter.on('error', result => {
+            console.log('error:', result);
+            socket.emit('crawl-data', result);
+        });
         crawlEmitter.on('errorFatal', err => socket.emit('crawl-error', { success: false, msg: err }));
 
         require('./crawl-runner')(toCrawl, crawlEmitter).then(results => {

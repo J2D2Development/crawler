@@ -64,14 +64,14 @@
 export default {
   name: 'app',
   data () {
-	return {
-		currentPanel: 'Dashboard'
-	}
+    return {
+      currentPanel: 'Dashboard'
+    }
   },
   methods: {
-	updateCurrentPanel(newPanel) {
-		this.currentPanel = newPanel;
-	}
+    updateCurrentPanel(newPanel) {
+      this.currentPanel = newPanel;
+    }
   }
 }
 </script>

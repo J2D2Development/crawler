@@ -63,7 +63,7 @@ async function run(products, crawlEmitter) {
         }
         await browser.close();
         
-        //write results to file
+        //write results to file: eventually switch to db
         const promFS = util.promisify(fs.writeFile);
         const timeStamp = new Date();
         const resultData = `Server cache refresh results for ${timeStamp} \n\n` + 
