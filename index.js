@@ -7,8 +7,9 @@ const crawlEmitter = new CrawlEmitter();
 const cron = require('node-cron');
 const http = require('http');
 const HOST = 'localhost';
-const PORT = 8080;
-const server = http.createServer();
+const PORT = 8000;
+const app = express();
+const server = http.createServer(app);
 const io = require('socket.io')(server);
 const utilities = require('./utilities/utilities-server');
 const productData = require('./data/available-products.json');
@@ -17,6 +18,11 @@ const productData = require('./data/available-products.json');
 // cron.schedule('* * * * *', function() {
 //     console.log('cron running every minute!', new Date().getMinutes());
 // });
+
+//do we need this?  if not, do we even need express here?
+//maybe keep it- will need a prod server eventually!
+app.use(express.static(path.join(__dirname, 'static')));
+
 
 io.on('connection', socket => {
     socket.emit('crawl-ready', { msg: 'Crawler Ready' });
@@ -38,8 +44,14 @@ io.on('connection', socket => {
             }
         }
 
-        crawlEmitter.on('crawled', result => socket.emit('crawl-data', result));
-        crawlEmitter.on('error', result => socket.emit('crawl-data', result));
+        crawlEmitter.on('crawled', result => {
+            console.log('crawled', result); 
+            socket.emit('crawl-data', result);
+        });
+        crawlEmitter.on('error', result => {
+            console.log('error:', result);
+            socket.emit('crawl-data', result);
+        });
         crawlEmitter.on('errorFatal', err => socket.emit('crawl-error', { success: false, msg: err }));
         crawlEmitter.on('manualCancel', result => {
             console.log('success ful cancel:', result);
@@ -63,5 +75,5 @@ io.on('connection', socket => {
 });
 
 server.listen(PORT, HOST, () => {
-    console.log(`Crawl Monitor running at: ${HOST}:${PORT}`);
+    console.log(`Crawl Monitor Socket Host Running at: ${HOST}:${PORT}`);
 });
